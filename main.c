@@ -1,18 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <readline/readline.h>
+#include <readline/history.h>
 
 #define SHELL_PROMPT "shell> "
 
 int main() {
-    char input[1024];
+    char *input;
     while (1) {
-        printf("%s", SHELL_PROMPT);
-        if (fgets(input, sizeof(input), stdin) == NULL) {
+        input = readline(SHELL_PROMPT);
+        if (input == NULL) {
             printf("\n");
             break;
         }
-        printf("You entered: %s", input);
+        if (strlen(input) > 0) {
+            add_history(input);
+            printf("You entered: %s\n", input);
+        }
+        free(input);
     }
     return 0;
 }

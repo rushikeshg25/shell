@@ -1,6 +1,6 @@
-# Devilo Shell
+# Jarvis
 
-Devilo is a custom Unix-like shell implemented in C. It provides a robust command-line interface with support for process execution, pipelines, input/output redirection, and signal management.
+Jarvis is a custom Unix-like shell implemented in C. It provides a robust command-line interface with support for process execution, pipelines, input/output redirection, and signal management.
 
 ## Features
 
@@ -76,18 +76,6 @@ The shell uses a centralized `free_tokens` system to ensure that all dynamically
 ### Safe Build System
 The makefile is configured with strict compiler flags (`-Wall -Wextra`) to catch potential issues during development. It links against `libreadline` for the user interface components.
 
-## Building and Running
-
-### Prerequisites
-- GCC compiler
-- GNU Readline library headers (usually `libreadline-dev` on Linux or available via homebrew on macOS)
-
-### Compilation
-To build the shell, run:
-```bash
-make
-```
-
 ### Execution
 To start the shell, use:
 ```bash
@@ -96,10 +84,4 @@ make run
 Alternatively, you can run the binary directly:
 ```bash
 ./shell
-```
-
-### Cleanup
-To remove temporary object files and the executable, run:
-```bash
-make clean
 ```

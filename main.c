@@ -7,7 +7,7 @@
 #include "execute.h"
 #include "signals.h"
 
-#define SHELL_PROMPT "shell> "
+#define SHELL_PROMPT "jarvis> "
 
 void start_repl() {
     char *input;

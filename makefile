@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -g
 SOURCES = main.c execute.c parser.c builtins.c signals.c redirect.c
 OBJ = $(SOURCES:.c=.o)
-TARGET = shell
+TARGET = jarvis
 LDFLAGS = -lreadline
 
 all: $(TARGET)

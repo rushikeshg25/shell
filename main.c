@@ -7,12 +7,21 @@
 #include "execute.h"
 #include "signals.h"
 
-#define SHELL_PROMPT "jarvis> "
-
 void start_repl() {
+    char hostname[256];
+    if (gethostname(hostname, sizeof(hostname)) != 0) {
+        strncpy(hostname, "localhost", sizeof(hostname));
+    }
+    hostname[sizeof(hostname) - 1] = '\0';
+    char *dot = strchr(hostname, '.');
+    if (dot) *dot = '\0';
+
+    char prompt[512];
+    snprintf(prompt, sizeof(prompt), "jarvis@%s> ", hostname);
+
     char *input;
     while (1) {
-        input = readline(SHELL_PROMPT);
+        input = readline(prompt);
         
         if (input == NULL) {
             printf("\n");
